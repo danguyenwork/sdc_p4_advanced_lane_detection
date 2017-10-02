@@ -115,14 +115,9 @@ if __name__ == '__main__':
     start = int(sys.argv[1])
     end = int(sys.argv[2])
     write_images = (sys.argv[3] == 'True')
-    erase = (sys.argv[4] == 'True')
-    mode = (sys.argv[5] == 'img')
+    imgmode = (sys.argv[4] == 'img')
 
-    if erase:
-        for f in glob.glob('test_videos/img/*'):
-            os.remove(f)
-
-    if mode:
+    if imgmode:
         test_fnames = glob.glob('test_images/*.jpg')
         for fname in test_fnames:
             img = mpimg.imread(fname)

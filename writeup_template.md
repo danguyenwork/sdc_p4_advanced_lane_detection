@@ -39,6 +39,20 @@ The goals / steps of this project are the following:
 
 You're reading it!
 
+Run the code with:
+
+python pipeline.py start end write_img mode
+- the start timestamp of the clip, if you want to do a subclip. `int`, otherwise put 0
+- the end timetamp of the clip, if you want to do a subclip. `int`, otherwise put 0
+- write_img: if you want a every frame to be written out to an image folder (very slow!). `True`, otherwise put `False`
+- mode: `img` or `vid`. img mode will process images in `test_images` while video mode will process videos in `test_videos`
+
+Code to just produce the output video without writing any images:
+
+```
+python 0 0 False vid
+```
+
 ### Camera Calibration
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
