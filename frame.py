@@ -151,7 +151,7 @@ class Frame(object):
         right_fitx = self.right_lane.fitx
         right_fity = self.right_lane.fity
 
-        original = self.rgb
+        original = self.undistorted
         warped = self.perspective_transformed
 
         # Create an image to draw the lines on
