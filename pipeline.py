@@ -123,7 +123,7 @@ if __name__ == '__main__':
             img = mpimg.imread(fname)
             pipeline(img)
     else:
-        test_videos = glob.glob('test_videos/harder_challenge_video.mp4')
+        test_videos = glob.glob('test_videos/project_video.mp4')
         for fname in test_videos:
             if end != 0:
                 inp = VideoFileClip(fname).subclip(start,end)

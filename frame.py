@@ -175,11 +175,12 @@ class Frame(object):
         font                   = cv2.FONT_HERSHEY_SIMPLEX
         left_lane_curvature = (800,100)
         right_lane_curvature = (800,150)
+        offset_center = (800, 200)
         fontScale              = 1
         fontColor              = (0,0,0)
         lineType               = 2
         pt1 = (780, 50)
-        pt2 = (1280, 170)
+        pt2 = (1280, 230)
 
         cv2.rectangle(result, pt1, pt2, (255, 255, 255), thickness = -1)
 
@@ -198,6 +199,20 @@ class Frame(object):
             lineType)
 
         # plt.imshow(result)
+
+        x_closest_left = self.left_lane.closest_to_car()
+        x_closest_right = self.right_lane.closest_to_car()
+
+        center = (x_closest_left + x_closest_right) // 2
+
+        offset = (center - 360) * 3.7/570
+
+        cv2.putText(result,"offset: " + "{0:.2f}".format(offset),
+            offset_center,
+            font,
+            fontScale,
+            fontColor,
+            lineType)
 
         return result
 
