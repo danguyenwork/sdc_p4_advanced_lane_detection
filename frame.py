@@ -200,12 +200,14 @@ class Frame(object):
 
         # plt.imshow(result)
 
+        # import ipdb; ipdb.set_trace()
+
         x_closest_left = self.left_lane.closest_to_car()
         x_closest_right = self.right_lane.closest_to_car()
 
         center = (x_closest_left + x_closest_right) // 2
 
-        offset = (center - 360) * 3.7/570
+        offset = (center - 640) * 3.7/881
 
         cv2.putText(result,"offset: " + "{0:.2f}".format(offset),
             offset_center,
