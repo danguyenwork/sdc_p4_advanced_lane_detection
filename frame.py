@@ -207,7 +207,7 @@ class Frame(object):
 
         center = (x_closest_left + x_closest_right) // 2
 
-        offset = (center - 640) * 3.7/881
+        offset = (center - 640) * 3.7/570
 
         cv2.putText(result,"offset: " + "{0:.2f}".format(offset),
             offset_center,

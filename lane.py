@@ -9,14 +9,14 @@ class Lane(object):
         self.fity = fity
 
     def closest_to_car(self):
-        ind = np.argmin(self.fity)
+        ind = np.argmax(self.fity)
         return self.fitx[ind]
 
     def calculate_curvature(self):
         y_eval = np.max(self.nonzeroy)
 
         ym_per_pix = 30/720 # meters per pixel in y dimension
-        xm_per_pix = 3.7/881 # meters per pixel in x dimension
+        xm_per_pix = 3.7/570 # meters per pixel in x dimension
 
         # Fit new polynomials to x,y in world space
         fit_cr = np.polyfit(self.nonzeroy*ym_per_pix, self.nonzerox*xm_per_pix, 2)

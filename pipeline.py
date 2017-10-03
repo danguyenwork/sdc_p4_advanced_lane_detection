@@ -89,11 +89,11 @@ def pipeline(img):
 
     frame.combined_binary[(frame.color_masks == 1) | (frame.sobel_masks == 1)] = 1
 
-    frame.region_of_interest = frame.region_of_interest(frame.combined_binary)
+    # frame.region_of_interest = frame.region_of_interest(frame.combined_binary)
 
     frame.set_perspective_params(perspective_params)
 
-    frame.perspective_transformed = frame.perspective_transform(frame.region_of_interest)
+    frame.perspective_transformed = frame.perspective_transform(frame.combined_binary)
 
     lane_tracker.append_frame(frame)
 
